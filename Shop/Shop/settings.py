@@ -1,5 +1,6 @@
 import os.path
 from pathlib import Path
+from braintree import Configuration, Environment
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CART_SESSION_ID = 'cart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+BRAINTREE_MERCHANT_ID = '85mh5zs3nhxny4q5' # ID продавца.
+BRAINTREE_PUBLIC_KEY = 'z4cs882bbk54dytv' # Публичный ключ.
+BRAINTREE_PRIVATE_KEY = '81fff08d34616abac6fc90638c2d4062' # Секретный ключ.
+
+Configuration.configure( Environment.Sandbox,
+                         BRAINTREE_MERCHANT_ID,
+                         BRAINTREE_PUBLIC_KEY,
+                         BRAINTREE_PRIVATE_KEY
+)
