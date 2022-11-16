@@ -117,6 +117,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -125,7 +126,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CART_SESSION_ID = 'cart'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '19ekaterina@gmail.com'
+EMAIL_HOST_PASSWORD = 'guitar99'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 BRAINTREE_MERCHANT_ID = '85mh5zs3nhxny4q5' # ID продавца.
 BRAINTREE_PUBLIC_KEY = 'z4cs882bbk54dytv' # Публичный ключ.
@@ -136,3 +142,5 @@ Configuration.configure( Environment.Sandbox,
                          BRAINTREE_PUBLIC_KEY,
                          BRAINTREE_PRIVATE_KEY
 )
+
+
